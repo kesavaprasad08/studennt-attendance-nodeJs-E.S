@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Management</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <p class="flex text-4xl p-5 justify-center">
+      Student Attendance Management
+    </p>
+    <div class="flex p-5 justify-between">
+      <div class="border-4 border-gray-950 p-3 rounded">
+        <input
+          class="border-2 border-black mr-3 p-1"
+          type="text"
+          id="name"
+          placeholder="Enter Student Name"
+        />
+        <button id="addStudentBtn" class="p-2 rounded text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+          
+          
+          Add Student
+        </button>
+      </div>
+      <div class="border-4 border-gray-950 p-3 rounded">
+        <input
+          type="date"
+          id="selectedDate"
+          class="mr-3 p-1 border-2 border-black "
+        />
+        <button id="searchBtn" class="bg-blue-500 p-1 mr-3 rounded p-2 rounded text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+          Search
+        </button>
+      </div>
+      <button id="attendanceReportBtn" class="bg-blue-500 p-1 rounded p-2 rounded text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+        Fetch Attendance Report
+      </button>
+    </div>
+    <table id="reportTable" class="flex justify-center"></table>
+    <form id="attendanceFormMark" class="flex flex-row p-5 justify-center">
+      <ul id="attendanceList" class=""></ul>
+      <button
+        id="attendanceSubmitBtn"
+        class="bg-blue-500 ml text-white p-1 h-10 rounded ml-10"
+      >
+        Submit Attendance
+      </button>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
