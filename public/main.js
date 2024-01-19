@@ -10,10 +10,10 @@ const attendanceFormMark = document.getElementById("attendanceFormMark");
 const fetchStudents = async (e) => {
   try {
     const date = document.getElementById("selectedDate").value;
-    console.log(date)
     const result = await axios.get(
       `http://localhost:3000/attendance/get-attendance/${date}`
     );
+    
 
     if (!result.data.status) {
       const response = await axios.get(
@@ -21,6 +21,7 @@ const fetchStudents = async (e) => {
       );
 
       const students = response.data.students;
+      console.log(students);
       attendanceList.innerHTML = "";
       reportTable.innerHTML = "";
 
@@ -73,10 +74,14 @@ const fetchAttendance = async (e) => {
       const { name, numberOfDaysPresent, totalNumberOfDays } = student;
 
       const PresentDays = `${numberOfDaysPresent}/${totalNumberOfDays}`;
-      const Percentage = (
+      let Percentage = (
         (numberOfDaysPresent / totalNumberOfDays) *
         100
       ).toFixed(2);
+      if(totalNumberOfDays==0){
+        
+        Percentage=0;
+      }
 
       nameCell.textContent = name;
       nameCell.className = 'text-center';
@@ -96,10 +101,12 @@ const submitAttendance = async (e) => {
   try {
     const dateInput = document.getElementById("selectedDate").value;
     const radioInputs = document.querySelectorAll("input[type=radio]:checked");
+    
 
     const attendanceData = [];
 
     radioInputs.forEach(async (radioInput) => {
+      
       const studentName = radioInput.name;
       const status = radioInput.value.toLowerCase();
       const studentId = radioInput.className.toString();
