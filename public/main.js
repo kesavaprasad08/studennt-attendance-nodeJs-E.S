@@ -137,7 +137,6 @@ const submitAttendance = async (e) => {
     axios
       .post("http://localhost:3000/attendance/add-attendance", data)
       .then((res) => {
-        console.log(res.data)
         showAttendance(res.data.data.Presents);
       });
   } catch (error) {
