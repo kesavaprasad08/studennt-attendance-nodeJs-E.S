@@ -29,7 +29,7 @@ Students.hasMany(Attendance);
 Attendance.belongsTo(Students);
 
 sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     app.listen(3000);
   })

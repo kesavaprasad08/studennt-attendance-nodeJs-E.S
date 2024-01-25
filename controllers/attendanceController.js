@@ -51,6 +51,7 @@ exports.getAttendance = async(req,res,next)=> {
                 Date:particularDate,
             },
         });
+        // console.log('here',attendanceReport)
         if(attendanceReport.length===0){
             return res.json({'status':false})
         }

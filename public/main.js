@@ -21,7 +21,7 @@ const fetchStudents = async (e) => {
       );
 
       const students = response.data.students;
-      console.log(students);
+      // console.log(students);
       attendanceList.innerHTML = "";
       reportTable.innerHTML = "";
 
@@ -104,9 +104,9 @@ const submitAttendance = async (e) => {
     
 
     const attendanceData = [];
-
+    // console.log(radioInputs)
     radioInputs.forEach(async (radioInput) => {
-      
+     
       const studentName = radioInput.name;
       const status = radioInput.value.toLowerCase();
       const studentId = radioInput.className.toString();
@@ -117,12 +117,12 @@ const submitAttendance = async (e) => {
       });
       if (studentId) {
         if (status == "present") {
-          console.log(`${studentName} : ${status}`);
+          // console.log(`${studentName} : ${status}`);
           await axios.put(
             `http://localhost:3000/attendance/update?studentId=${studentId}&status=Present`
           );
         } else {
-          console.log(`${studentName} : ${status}`);
+          // console.log(`${studentName} : ${status}`);
           await axios.put(
             `http://localhost:3000/attendance/update?studentId=${studentId}&status=Absent`
           );
